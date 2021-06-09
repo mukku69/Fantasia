@@ -72,7 +72,7 @@ end
 gem 'bootstrap', '~> 4.5'
 gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
-gem 'device'
+gem 'devise'
 gem 'kaminari','~> 1.2.1'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
