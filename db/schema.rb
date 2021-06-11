@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(version: 2021_06_10_075039) do
     t.string "name"
     t.text "introduction"
     t.string "profile_image_id"
+    t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
