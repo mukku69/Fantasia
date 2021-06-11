@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def new
     @post = Post.new
@@ -10,6 +11,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
@@ -20,7 +22,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to post_path(@post), notice: "You have created book successfully."
+      redirect_to post_path(@post.id), notice: "You have created book successfully."
     else
       @posts = Post.all
       render 'index'

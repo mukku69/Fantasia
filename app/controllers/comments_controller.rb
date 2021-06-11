@@ -2,11 +2,11 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
 	def create
-		@post = post.find(params[:post_id])
-		@post_comment = postComment.new(post_comment_params)
-		@post_comment.post_id = @post.id
-		@post_comment.user_id = current_user.id
-		if @post_comment.save
+		@post = Post.find(params[:post_id])
+		@comment = Comment.new(comment_params)
+		@comment.post_id = @post.id
+		@comment.user_id = current_user.id
+		if @comment.save
   		redirect_to post_path(@post.id)
 		else
 		  render 'posts/show'
@@ -14,15 +14,15 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
-		@post = post.find(params[:post_id])
-  	post_comment = @post.post_comments.find(params[:id])
-		post_comment.destroy
+		@post = Post.find(params[:post_id])
+  	@comment = @post.comments.find(params[:id])
+		@comment.destroy
 		redirect_to request.referer
 	end
 
 	private
-	def post_comment_params
-		params.require(:post_comment).permit(:comment)
+	def comment_params
+		params.require(:comment).permit(:comment)
 	end
-	
+
 end
