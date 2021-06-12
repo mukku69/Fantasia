@@ -6,6 +6,21 @@
   <tr>
     <td><%= post.title %></td>
     <td><%= post.body %></td>
+    <td>
+      <% if post.liked_by?(current_user) %>
+        <p>
+          <%= link_to post_likes_path(post.id), method: :delete do %>
+            ♥<%= post.likes.count %> いいね
+          <% end %>
+        </p>
+      <% else %>
+        <p>
+          <%= link_to post_likes_path(post.id), method: :post do %>
+            ♡<%= post.likes.count %> いいね
+          <% end %>
+        </p>
+      <% end %>
+    </td>
     <td><%= link_to "投稿詳細", post_path(post.id) %></td>
   </tr>
 <% end %>

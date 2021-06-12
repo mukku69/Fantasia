@@ -1,1 +1,5 @@
 <h1>ここはトップページです</h1>
+<% @ranking.each.with_index(1) do | post, i | %>
+  <%= i %>位
+  <%= post.title %>
+<% end %>
