@@ -1,0 +1,19 @@
+<div class="container">
+  <h4 class="mt-3">マイページ</h4>
+  <div class="row">
+    <div class="col-md-6">
+      <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "no_image.jpg"%>
+      <table class="table-light table table-hover">
+        <tr class="col-xs-2">
+          <td class="table-secondary">名前</td>
+          <td><%= @user.name %></td>
+          <td class="table-secondary">メールアドレス</td>
+          <td><%= @user.email %></td>
+          <td class="table-secondary">自己紹介</td>
+          <td><%= @user.introduction %></td>
+        </tr>
+      </table>
+      <%= link_to "編集する", edit_user_path(current_user), class: "btn btn-sm btn-success ml-5 px-3 table_button" %>
+    </div>
+  </div>
+</div>

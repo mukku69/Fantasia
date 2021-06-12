@@ -1,0 +1,24 @@
+<header>
+    <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <div class="navbar-brand logo">
+        <%= link_to root_path do %>
+          <div>空想の樹</div>
+        <% end %>
+      </div>
+      <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <!--ログイン時-->
+          <li class="nav-item ml-1"><%= link_to " マイページ", user_path(current_user), class: 'btn btn-light btn-ms nav-link fas fa-tree' %></li>
+          <li class="nav-item ml-1"><%= link_to " 投稿一覧", posts_path, class: 'btn btn-light btn-ms nav-link fas fa-tree' %></li>
+          <li class="nav-item ml-1"><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-light btn-ms nav-link fas fa-sign-out-alt' %></li>
+        <% else %>
+          <!-- ログインしていない時 -->
+          <li class="nav-item ml-1"><%= link_to " 投稿一覧", posts_path, class: 'btn btn-light btn-ms nav-link fas fa-tree' %></li>
+          <li class="nav-item ml-1"><%= link_to " 新規登録", new_user_registration_path, class: 'btn btn-light btn-ms nav-link fas fa-user-plus' %></li>
+          <li class="nav-item ml-1"><%= link_to " ログイン", new_user_session_path, class: 'btn btn-light btn-ms nav-link fas fa-sign-in-alt' %></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>
