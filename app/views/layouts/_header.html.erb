@@ -9,8 +9,9 @@
       <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <!--ログイン時-->
-          <li class="nav-item ml-1"><%= link_to " マイページ", user_path(current_user), class: 'btn btn-light btn-ms nav-link fas fa-tree' %></li>
+          <li class="nav-item ml-1"><%= link_to " マイページ", user_path(current_user), class: 'btn btn-light btn-ms nav-link fas fa-user' %></li>
           <li class="nav-item ml-1"><%= link_to " 投稿一覧", posts_path, class: 'btn btn-light btn-ms nav-link fas fa-tree' %></li>
+          <li class="nav-item ml-1"><%= link_to "新規投稿", new_post_path, class: 'btn btn-light btn-ms nav-link fas fa-book-open' %></li>
           <li class="nav-item ml-1"><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: 'btn btn-light btn-ms nav-link fas fa-sign-out-alt' %></li>
         <% else %>
           <!-- ログインしていない時 -->

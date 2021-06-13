@@ -1,11 +1,8 @@
 <h1>投稿一覧</h1>
 
-<%= link_to "新規投稿", new_post_path %>
-
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.title %></td>
-    <td><%= post.body %></td>
     <td>
       <% if post.liked_by?(current_user) %>
         <p>
