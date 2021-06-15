@@ -11,9 +11,18 @@
           <td><%= @user.email %></td>
           <td class="table-secondary">自己紹介</td>
           <td><%= @user.introduction %></td>
+          <td><%= link_to "編集する", edit_user_path(current_user), class: "btn btn-sm btn-success ml-5 px-3 table_button" %></td>
         </tr>
       </table>
-      <%= link_to "編集する", edit_user_path(current_user), class: "btn btn-sm btn-success ml-5 px-3 table_button" %>
+        <h3>投稿一覧</h3>
+        <% @posts.each do |post| %>
+          <tr>
+            <td><%= link_to post.title , post_path(post.id) %></td>
+            <td>コメント件数：<%= post.comments.count %></td>
+          </tr>
+        <% end %>
+      <table>
+      </table>
     </div>
   </div>
 </div>

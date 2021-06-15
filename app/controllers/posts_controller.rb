@@ -25,7 +25,7 @@ class PostsController < ApplicationController
       redirect_to post_path(@post.id), notice: "You have created book successfully."
     else
       @posts = Post.all
-      render 'index'
+      render 'new'
     end
   end
 
