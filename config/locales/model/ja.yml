@@ -4,6 +4,7 @@ ja:
       admin_user: 管理者
       post: 投稿
       comment: コメント
+      contact: 問い合わせ
       name: 名前
     attributes:
       admin_user:
