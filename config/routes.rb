@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-
   root :to => 'homes#top'
   get '/quit_confirm' => 'users#quit_confirm'
 
@@ -19,4 +18,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
   end
+
+  resources :contacts, only: [:new, :create]
+
 end
