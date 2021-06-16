@@ -1,0 +1,14 @@
+お問い合わせフォーム
+  <div>
+    <%= form_with model: @contact, local:true do |f| %>
+      <%= f.label :"お名前"%>
+       <%= current_user.name %>
+      <%= f.label :"メールアドレス"%>
+       <%= current_user.email %>
+      <%= f.label :"お問合せ内容"%>
+       <%= f.text_area :body %>
+    <div>
+      <%= f.submit "送信"%>
+    </div>
+    <% end %>
+  </div>
