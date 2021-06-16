@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-50.times do |n|
+30.times do |n|
   User.create!(
-    name: "#{n}",
-    email: "#{n}@a",
+    name: "テスト太郎#{n}",
+    email: "test#{n}@a",
     password: "000000"
   )
 end
@@ -25,6 +25,6 @@ end
 
 AdminUser.create!(
     email: 'admin@example.com',
-    password: 'password',
-    password_confirmation: 'password'
+    password: '000000',
+    password_confirmation: '000000'
   ) if Rails.env.development?
