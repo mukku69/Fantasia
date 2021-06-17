@@ -9,11 +9,14 @@ class ContactsController < ApplicationController
     @contact.user_id = current_user.id
     if @contact.save
       ContactMailer.contact_mail(current_user, @contact).deliver
-      redirect_back(fallback_location: root_path)
+      redirect_to complete_contacts_path
       flash[:notice] = "お問合せありがとうございます。"
     else
       render :new
     end
+  end
+
+  def complete
   end
 
   private

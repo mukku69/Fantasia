@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
   end
 
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: [:new, :create] do
+    get :complete, on: :collection
+  end
 
 end
