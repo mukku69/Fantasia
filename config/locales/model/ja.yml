@@ -2,10 +2,11 @@ ja:
   activerecord:
     models:
       admin_user: 管理者
+      name: 名前
       post: 投稿
       comment: コメント
+      genre: ジャンル
       contact: 問い合わせ
-      name: 名前
     attributes:
       admin_user:
         email: メールアドレス
