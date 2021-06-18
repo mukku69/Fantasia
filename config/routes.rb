@@ -15,8 +15,9 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
-    resources :comments, only: [:create, :destroy]
-    resource :likes, only: [:create, :destroy]
+   resources :comments, only: [:create, :destroy]
+   resource :likes, only: [:create, :destroy]
+    get :search, on: :collection
   end
 
   resources :contacts, only: [:new, :create] do

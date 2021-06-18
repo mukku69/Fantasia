@@ -2,4 +2,5 @@
 <% @ranking.each.with_index(1) do | post, i | %>
   <%= i %>位
   <%= post.title %>
+  <%= post.likes.count %>
 <% end %>
