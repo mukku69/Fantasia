@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'chats/index'
+  get 'chats/show'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -23,5 +25,7 @@ Rails.application.routes.draw do
   resources :contacts, only: [:new, :create] do
     get :complete, on: :collection
   end
+
+  resources :chats, only: [:show, :create]
 
 end
