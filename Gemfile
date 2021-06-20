@@ -83,3 +83,6 @@ gem "refile-mini_magick"
 gem 'bullet'
 gem 'ransack'
 gem 'activeadmin'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'

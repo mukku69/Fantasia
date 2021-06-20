@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
-
-  get 'chats/index'
-  get 'chats/show'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   root :to => 'homes#top'
   get '/quit_confirm' => 'users#quit_confirm'
