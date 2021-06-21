@@ -3,14 +3,21 @@
   <div class="row">
     <div class="col-md-6">
       <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "no_image.jpg"%>
-      <%=link_to "フォロー", follows_user_path(@user.id) %>
-      <%=link_to "フォロワー", followers_user_path(@user.id) %>
-      <% if current_user != @user %>
-          <% if @user.followed_by?(current_user) %>
-              <p><%=link_to "フォロー済み", user_relationships_path(@user.id), method: :delete %></p>
-          <% else %>
-              <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
-          <% end %>
+      <% if user_signed_in? %>
+        <%=link_to "フォロー", follows_user_path(@user.id) %>
+        <%=link_to "フォロワー", followers_user_path(@user.id) %>
+        <% if current_user != @user %>
+  			  <%= link_to 'チャットする', chat_path(@user.id) %>
+  			<% end %>
+
+        <% if current_user != @user %>
+            <% if @user.followed_by?(current_user) %>
+                <p><%=link_to "フォロー済み", user_relationships_path(@user.id), method: :delete %></p>
+            <% else %>
+                <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
+            <% end %>
+        <% end %>
+
       <% end %>
       <table class="table-light table table-hover">
         <tr class="col-xs-2">
@@ -20,7 +27,9 @@
           <td><%= @user.email %></td>
           <td class="table-secondary">自己紹介</td>
           <td><%= @user.introduction %></td>
-          <td><%= link_to "編集する", edit_user_path(current_user), class: "btn btn-sm btn-success ml-5 px-3 table_button" %></td>
+          <% if current_user == @user && user_signed_in? %>
+            <td><%= link_to "編集する", edit_user_path(@user), class: "btn btn-sm btn-success ml-5 px-3 table_button" %></td>
+          <% end %>
         </tr>
       </table>
         <h3>投稿一覧</h3>

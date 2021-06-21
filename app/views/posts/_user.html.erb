@@ -4,6 +4,7 @@
     <td><%= link_to post.user.name ,user_path(post.user) %></td>
     <td><%= post.title %></td>
     <td><%= post.body %></td>
+    <td><%= post.genre.name %></td>
     <td>コメント件数：<%= post.comments.count %></td>
     <td id = "likes<%= post.id %>" ><%= render  'likes/like',  post: post %></td>
     <td>

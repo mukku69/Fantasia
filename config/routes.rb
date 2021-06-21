@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
-  devise_for :users
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
 
   root :to => 'homes#top'
   get '/quit_confirm' => 'users#quit_confirm'
@@ -15,10 +14,15 @@ Rails.application.routes.draw do
   end
 
   resources :posts, only: [:new, :index, :show, :edit, :create, :destroy, :update] do
-    resources :comments, only: [:create, :destroy]
-    resource :likes, only: [:create, :destroy]
+   resources :comments, only: [:create, :destroy]
+   resource :likes, only: [:create, :destroy]
+    get :search, on: :collection
   end
 
-  resources :contacts, only: [:new, :create]
+  resources :contacts, only: [:new, :create] do
+    get :complete, on: :collection
+  end
+
+  resources :chats, only: [:show, :create]
 
 end

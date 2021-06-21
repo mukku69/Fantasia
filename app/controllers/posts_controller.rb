@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :set_q, only: [:index, :search]
 
   def new
     @post = Post.new
@@ -44,10 +45,18 @@ class PostsController < ApplicationController
     end
   end
 
+  def search
+    @results = @q.result
+  end
+
 private
 
   def post_params
     params.require(:post).permit(:title, :body)
+  end
+
+  def set_q
+    @q = Post.ransack(params[:q])
   end
 
 end

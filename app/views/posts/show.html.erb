@@ -1,5 +1,5 @@
-<% if user_signed_in? %>
-  <%= render "posts/user", post: @post %>
-<% else %>
-  <%= render "posts/guest", post: @post %>
-<% end %>
+  <% if user_signed_in? %>
+    <%= render "posts/user", post: @post %>
+  <% else %>
+    <%= render "posts/guest", post: @post %>
+  <% end %>

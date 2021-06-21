@@ -7,17 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 30.times do |n|
   User.create!(
-    name: "テスト太郎#{n}",
+    name: Gimei.unique.name,
     email: "test#{n}@a",
+    introduction: "はじめまして、よろしくお願いします",
     password: "000000"
   )
 end
 
+10.times do
+   Genre.create!(
+    name: Faker::Book.genre
+  )
+  end
+
 User.all.each do |user|
-  rand(0..3).times do |n|
-    Post.create!(
+  rand(1..10).times do |n|
+    user.posts.create!(
       user_id: user.id,
-      title: "タイトル#{n}",
+      genre_id: rand(1..10),
+      title: Faker::Book.title,
       body: "本文#{n}"
     )
   end
