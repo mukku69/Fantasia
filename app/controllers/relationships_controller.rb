@@ -1,4 +1,5 @@
 class RelationshipsController < ApplicationController
+  before_action :authenticate_user!
 
   def create
     follow = current_user.active_relationships.new(follower_id: params[:user_id])
@@ -11,4 +12,5 @@ class RelationshipsController < ApplicationController
     follow.destroy
     redirect_back(fallback_location: root_path)
   end
+  
 end
