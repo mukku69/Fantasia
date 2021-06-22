@@ -2,20 +2,22 @@
 
 <h1>投稿検索</h1>
 <%= search_form_for @q, url: search_posts_path do |f| %>
-  <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "--選択してください--", size: "30", class: "form-control" %>
+  <%= f.collection_select :genre_name_cont, Genre.all, :name, :name, include_blank: "選択して下さい" %>
   <%= f.label :body_cont, '本文' %>
-  <%= f.search_field :body_cont %>
+  <%= f.search_field :body_cont, class:"search_field", placeholder:"キーワードを入力してください" %>
   <br>
   <%= f.submit '検索' %>
 <% end %>
-
-<% @posts.each do |post| %>
-  <table>
-    <tr>
-      <td><%= link_to post.user.name, user_path(post.user.id) %></td>
-      <td><%= link_to post.title, post_path(post.id) %></td>
-      <td><%= post.genre.name %></td>
-      <td>コメント件数：<%= post.comments.count %></td>
-    </tr>
-  </table>
-<% end %>
+<div class="jscroll scroll-list">
+  <% @posts.each do |post| %>
+    <table class="jscroll">
+      <tr>
+        <td><%= link_to post.user.name, user_path(post.user.id) %></td>
+        <td><%= link_to post.title, post_path(post.id) %></td>
+        <td><%= post.genre.name %></td>
+        <td>コメント件数：<%= post.comments.count %></td>
+      </tr>
+    </table>
+  <% end %>
+   <%= paginate @posts %>
+</div>
