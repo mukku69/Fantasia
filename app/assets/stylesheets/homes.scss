@@ -1,8 +1,23 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.top-img {
+.top-content {
+   // width: 100%;
+   // min-height: 100vh;
+   // background: image-url("Fantastic_world_Forests.jpg") center center / cover no-repeat fixed;
+   position: fixed;
+   z-index: 1;
+}
+
+video {
    width: 100%;
-   min-height: 100vh;
-   background: image-url("Fantastic_world_Forests.jpg") center center / cover no-repeat fixed;
+   height: 100%;
+   z-index: 0;
+}
+
+.title {
+   color: #fff;
+   text-align: center;
+   font-size: 200px;
+   text-shadow: 2px 3px 3px black;
 }
