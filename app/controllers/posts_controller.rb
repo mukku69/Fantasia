@@ -7,7 +7,8 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.order("RANDOM()").page(params[:page]).per(30)
+    rand = Rails.env.production? ?  "rand()" : "RANDOM()"
+    @posts = Post.order(rand).page(params[:page]).per(30)
   end
 
   def show
