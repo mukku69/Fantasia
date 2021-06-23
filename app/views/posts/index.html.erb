@@ -10,7 +10,7 @@
 <% end %>
 <div class="jscroll scroll-list">
   <% @posts.each do |post| %>
-    <table class="jscroll">
+    <table>
       <tr>
         <td><%= link_to post.user.name, user_path(post.user.id) %></td>
         <td><%= link_to post.title, post_path(post.id) %></td>
