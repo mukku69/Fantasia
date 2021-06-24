@@ -1,13 +1,30 @@
 // Place all the styles related to the homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.top-content {
-   // width: 100%;
-   // min-height: 100vh;
-   // background: image-url("Fantastic_world_Forests.jpg") center center / cover no-repeat fixed;
+#header-top {
    position: fixed;
+   top: 0px;
+   right: 0px;
+   background-color: rgba(51,51,51,0.5);
+   color: #fff;
+   width: 350px;
+   min-height: 100%;
+   display: none;
    z-index: 1;
 }
+
+.nav-img {
+   background-image: image-url('korog.png');
+   position: fixed;
+   background-size: cover;
+   height: 200px;
+   width: 200px;
+   z-index: 1;
+   right: -50px;
+   top: 300px;
+   display: none;
+}
+
 
 video {
    width: 100%;
@@ -15,9 +32,65 @@ video {
    z-index: 0;
 }
 
-.title {
-   color: #fff;
-   text-align: center;
-   font-size: 200px;
-   text-shadow: 2px 3px 3px black;
+.about-text {
+   font-size: large;
 }
+
+.balloon-left {
+   position: relative;
+   width: 50%;
+   margin: 2em 300px;
+   padding: 15px;
+   background: #fff0c6;
+   border-radius: 30px;
+}
+.balloon-left:before {
+   content: "";
+   position: absolute;
+   left: -38px;
+   width: 13px;
+   height: 12px;
+   bottom: 0;
+   background: #fff0c6;
+   border-radius: 50%;
+}
+.balloon-left:after {
+   content: "";
+   position: absolute;
+   left: -24px;
+   width: 20px;
+   height: 18px;
+   bottom: 3px;
+   background: #fff0c6;
+   border-radius: 50%;
+}
+
+.balloon-right {
+   position: relative;
+   width: 50%;
+   margin: 2em 300px 2em auto;
+   padding: 15px;
+   background: #fff0c6;
+   border-radius: 30px;
+}
+.balloon-right:before {
+   content: "";
+   position: absolute;
+   right: -38px;
+   width: 13px;
+   height: 12px;
+   bottom: 0;
+   background: #fff0c6;
+   border-radius: 50%;
+}
+.balloon-right:after {
+   content: "";
+   position: absolute;
+   right: -24px;
+   width: 20px;
+   height: 18px;
+   bottom: 3px;
+   background: #fff0c6;
+   border-radius: 50%;
+}
+

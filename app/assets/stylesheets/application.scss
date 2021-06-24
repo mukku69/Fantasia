@@ -18,6 +18,26 @@
 @import 'font-awesome';
 @import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
 
-header {
-  background-color: rgba(255, 255, 255, 0);
+.header {
+  background-color: #333;
+}
+
+.btn {
+  text-shadow: silver 1px 1px 10px;
+  font-size: 15px;
+}
+.btn:hover {
+  background-color: rgba(51,51,51,0.5);
+}
+
+.top-ul {
+  list-style: none;
+  margin-top: 210px;
+  line-height: 100px;
+}
+
+.nav-menu {
+  text-shadow: silver 1px 1px 10px;
+  font-size: 25px;
+  color: #333;
 }

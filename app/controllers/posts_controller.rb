@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   def index
     rand = Rails.env.production? ?  "rand()" : "RANDOM()"
     @posts = Post.order(rand).page(params[:page]).per(30)
+    @ranking = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 
   def show
