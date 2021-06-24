@@ -2,95 +2,131 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #header-top {
-   position: fixed;
-   top: 0px;
-   right: 0px;
-   background-color: rgba(51,51,51,0.5);
-   color: #fff;
-   width: 350px;
-   min-height: 100%;
-   display: none;
-   z-index: 1;
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  background-color: rgba(51,51,51,0.5);
+  color: #fff;
+  width: 350px;
+  min-height: 100%;
+  display: none;
+  z-index: 2;
 }
 
 .nav-img {
-   background-image: image-url('korog.png');
-   position: fixed;
-   background-size: cover;
-   height: 200px;
-   width: 200px;
-   z-index: 1;
-   right: -50px;
-   top: 300px;
-   display: none;
+  background-image: image-url('korog.png');
+  position: fixed;
+  background-size: cover;
+  height: 200px;
+  width: 200px;
+  z-index: 3;
+  right: -50px;
+  top: 300px;
+  display: none;
 }
 
+.space {
+  padding-top: 100px;
+}
+
+.nav-menu {
+  text-shadow: silver 1px 1px 10px;
+  font-size: 25px;
+  color: #DFDBC4;
+}
+
+.nav-menu:hover {
+  color: #AA8E4F;
+}
+
+.top-ul {
+  list-style: none;
+  margin-top: 100px;
+  line-height: 100px;
+}
 
 video {
-   width: 100%;
-   height: 100%;
-   z-index: 0;
-}
-
-.about-text {
-   font-size: large;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .balloon-left {
-   position: relative;
-   width: 50%;
-   margin: 2em 300px;
-   padding: 15px;
-   background: #fff0c6;
-   border-radius: 30px;
+  position: relative;
+  width: 50%;
+  margin: 2em 300px;
+  padding: 20px;
+  background: #fff0c6;
+  border-radius: 30px;
 }
 .balloon-left:before {
-   content: "";
-   position: absolute;
-   left: -38px;
-   width: 13px;
-   height: 12px;
-   bottom: 0;
-   background: #fff0c6;
-   border-radius: 50%;
+  content: "";
+  position: absolute;
+  left: -38px;
+  width: 13px;
+  height: 12px;
+  bottom: 0;
+  background: #fff0c6;
+  border-radius: 50%;
 }
 .balloon-left:after {
-   content: "";
-   position: absolute;
-   left: -24px;
-   width: 20px;
-   height: 18px;
-   bottom: 3px;
-   background: #fff0c6;
-   border-radius: 50%;
+  content: "";
+  position: absolute;
+  left: -24px;
+  width: 20px;
+  height: 18px;
+  bottom: 3px;
+  background: #fff0c6;
+  border-radius: 50%;
 }
 
 .balloon-right {
-   position: relative;
-   width: 50%;
-   margin: 2em 300px 2em auto;
-   padding: 15px;
-   background: #fff0c6;
-   border-radius: 30px;
+  position: relative;
+  width: 50%;
+  margin: 2em 300px 2em auto;
+  padding: 20px;
+  background: #fff0c6;
+  border-radius: 30px;
 }
 .balloon-right:before {
-   content: "";
-   position: absolute;
-   right: -38px;
-   width: 13px;
-   height: 12px;
-   bottom: 0;
-   background: #fff0c6;
-   border-radius: 50%;
+  content: "";
+  position: absolute;
+  right: -38px;
+  width: 13px;
+  height: 12px;
+  bottom: 0;
+  background: #fff0c6;
+  border-radius: 50%;
 }
 .balloon-right:after {
-   content: "";
-   position: absolute;
-   right: -24px;
-   width: 20px;
-   height: 18px;
-   bottom: 3px;
-   background: #fff0c6;
-   border-radius: 50%;
+  content: "";
+  position: absolute;
+  right: -24px;
+  width: 20px;
+  height: 18px;
+  bottom: 3px;
+  background: #fff0c6;
+  border-radius: 50%;
 }
 
+.about {
+  height: 1000px;
+  background-color: #222222;
+  color: #DFDBC4;
+  text-shadow: silver 1px 1px 10px;
+  margin-top: -6px;
+}
+
+.about-top {
+  letter-spacing: 10px;
+  font-size: 70px;
+}
+
+.about-text {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.about-second {
+  margin: 200px 0 100px 0;
+}
