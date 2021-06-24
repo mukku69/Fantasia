@@ -9,9 +9,11 @@
   </head>
 
   <body>
-    <% unless current_page?(root_path) %>
-      <%= render "layouts/header" %>
-    <% end %>
+    <div class="header">
+      <% unless current_page?(root_path) %>
+        <%= render "layouts/header" %>
+      <% end %>
+    </div>
 
     <%= yield %>
 

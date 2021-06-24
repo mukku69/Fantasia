@@ -1,23 +1,39 @@
-<h1>投稿一覧</h1>
+<div class="container text-center mt-2">
+  <div class="row">
+    <div class="col">
+      <%= search_form_for @q, url: search_posts_path do |f| %>
+        <%= f.label :genre_name_cont, 'カテゴリー' %>
+        <%= f.collection_select :genre_name_cont, Genre.all, :name, :name, include_blank: "選択して下さい" %>
+        <%= f.label :body_cont, '本文' %>
+        <%= f.search_field :body_cont, class:"search_box", placeholder:"キーワードを入力してください", size:"30" %>
+        <%= f.submit '検索' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>投稿一覧</h1>
+        <% @ranking.each.with_index(1) do | post, i | %>
+          <%= i %>位
+          <%= post.title %>
+          いいね数 <%= post.likes.count %>
+        <% end %>
 
-<h1>投稿検索</h1>
-<%= search_form_for @q, url: search_posts_path do |f| %>
-  <%= f.collection_select :genre_name_cont, Genre.all, :name, :name, include_blank: "選択して下さい" %>
-  <%= f.label :body_cont, '本文' %>
-  <%= f.search_field :body_cont, class:"search_field", placeholder:"キーワードを入力してください" %>
-  <br>
-  <%= f.submit '検索' %>
-<% end %>
-<div class="jscroll scroll-list">
-  <% @posts.each do |post| %>
-    <table>
-      <tr>
-        <td><%= link_to post.user.name, user_path(post.user.id) %></td>
-        <td><%= link_to post.title, post_path(post.id) %></td>
-        <td><%= post.genre.name %></td>
-        <td>コメント件数：<%= post.comments.count %></td>
-      </tr>
-    </table>
-  <% end %>
-   <%= paginate @posts %>
+      <div class="jscroll scroll-list">
+        <% @posts.each do |post| %>
+          <table>
+            <tr>
+              <td><%= link_to post.user.name, user_path(post.user.id) %></td>
+              <td><%= link_to post.title, post_path(post.id) %></td>
+              <td><%= post.genre.name %></td>
+              <td>コメント件数：<%= post.comments.count %></td>
+            </tr>
+          </table>
+        <% end %>
+        <%= paginate @posts %>
+      </div>
+    </div>
+  </div>
 </div>

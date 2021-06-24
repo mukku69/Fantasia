@@ -10,6 +10,7 @@
                   <th style="text-align: right; font-size: 20px;"><%= @user.name %></th>
                 </tr>
               </thead>
+              <div class="chat_contents scroll" id="scroll">
               <% @chats.each do |chat| %>
                 <% if chat.user_id == current_user.id %>
                 <tbody>
@@ -31,6 +32,7 @@
                 </tbody>
                 <% end %>
               <% end %>
+              </div>
             </table>
             <%= form_with model: @chat do |f| %>
               <%= f.text_field :message, :placeholder => "メッセージを入力して下さい" , :size => 30 %>
