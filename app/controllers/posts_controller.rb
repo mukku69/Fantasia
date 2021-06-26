@@ -51,6 +51,11 @@ class PostsController < ApplicationController
     @results = @q.result
   end
 
+  def comments
+    @post = Post.find(params[:id])
+    @posts = @post.followings
+  end
+
 private
 
   def post_params

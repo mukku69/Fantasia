@@ -1,5 +1,7 @@
+<div class="container">
   <% if user_signed_in? %>
-    <%= render "posts/user", post: @post %>
+    <%= render "posts/user_show", post: @post %>
   <% else %>
-    <%= render "posts/guest", post: @post %>
+    <%= render "posts/guest_show", post: @post %>
   <% end %>
+</div>

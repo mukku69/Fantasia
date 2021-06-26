@@ -1,15 +1,23 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
 
+  def index
+		@post = Post.find(params[:post_id])
+		@comments = @post.comments
+		@new_comment = Comment.new
+  end
+
 	def create
 		@post = Post.find(params[:post_id])
 		@comment = Comment.new(comment_params)
 		@comment.post_id = @post.id
 		@comment.user_id = current_user.id
 		if @comment.save
-  		redirect_to post_path(@post.id)
+  		redirect_to post_comments_path(@post.id)
 		else
-		  render 'posts/show'
+			@comments = @post.comments
+			@new_comment = Comment.new
+		  render 'index'
 		end
 	end
 

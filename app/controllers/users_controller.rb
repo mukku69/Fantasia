@@ -2,7 +2,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @post = @user.posts.find_by(params[:post_id])
     @posts = @user.posts.all
+    @comments = @user.comments.all
   end
 
   def edit
