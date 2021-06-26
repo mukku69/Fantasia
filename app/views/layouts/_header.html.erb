@@ -1,26 +1,21 @@
 <header>
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <div class="navbar-brand logo">
-        <%= link_to root_path do %>
-          <div>空想の樹</div>
-        <% end %>
-      </div>
-      <ul class="navbar-nav">
-        <% if user_signed_in? %>
-          <!--ログイン時-->
-          <li class="nav-item "><%= link_to " マイページ", user_path(current_user), class: 'btn fas fa-user' %></li>
-          <li class="nav-item "><%= link_to " 投稿一覧", posts_path, class: 'btn fas fa-tree' %></li>
-          <li class="nav-item "><%= link_to "新規投稿", new_post_path, class: 'btn fas fa-book-open' %></li>
-          <li class="nav-item "><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: 'btn fas fa-sign-out-alt' %></li>
-          <li class="nav-item "><%= link_to " お問い合わせ", new_contact_path, class: 'btn' %></li>
-        <% else %>
-          <!-- ログインしていない時 -->
-          <li class="nav-item "><%= link_to " 投稿一覧", posts_path, class: 'btn fas fa-tree' %></li>
-          <li class="nav-item "><%= link_to " 新規登録", new_user_registration_path, class: 'btn fas fa-user-plus' %></li>
-          <li class="nav-item "><%= link_to " ログイン", new_user_session_path, class: 'btn fas fa-sign-in-alt' %></li>
-        <% end %>
-      </ul>
-    </div>
+  <nav class="header-nav">
+    <ul class="header-ul">
+      <% if user_signed_in? %>
+        <!--ログイン時-->
+        <li><%= link_to " トップ", root_path, class: 'header-li' %></li>
+        <li><%= link_to " マイページ", user_path(current_user), class: 'header-li' %></li>
+        <li><%= link_to " 投稿一覧", posts_path, class: 'header-li' %></li>
+        <li><%= link_to "新規投稿", new_post_path, class: 'header-li' %></li>
+        <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: 'header-li' %></li>
+        <li><%= link_to " お問い合わせ", new_contact_path, class: 'header-li' %></li>
+      <% else %>
+        <!-- ログインしていない時 -->
+        <li><%= link_to " トップ", root_path, class: 'header-li' %></li>
+        <li><%= link_to " 投稿一覧", posts_path, class: 'header-li' %></li>
+        <li><%= link_to " 新規登録", new_user_registration_path, class: 'header-li' %></li>
+        <li><%= link_to " ログイン", new_user_session_path, class: 'header-li' %></li>
+      <% end %>
+    </ul>
   </nav>
 </header>
