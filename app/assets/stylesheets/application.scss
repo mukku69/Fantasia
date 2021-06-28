@@ -23,10 +23,12 @@ body {
   color: #DFDBC4;
 }
 
+h3 {
+  letter-spacing: 5px;
+}
+
 header {
-  position: fixed;
-  z-index: 1;
-  top: 0;
+  text-shadow: silver 1px 1px 10px;
   height: 80px;
   width: 100%;
   display: flex;
@@ -41,7 +43,7 @@ header {
   display: flex;
   list-style: none;
   padding: 0;
-  margin: 0s;
+  margin: 0;
   letter-spacing: 5px;
 }
 
@@ -51,11 +53,48 @@ header {
 }
 
 .header-li:hover {
-  color: #DFDBC4;
+  color: #AA8E4F;
   text-decoration: none;
   background-color: rgba(51,51,51,0.9);
 }
 
-.container {
-  margin-top: 100px;
+#button {
+  margin-left: auto;
+  background-collor: white;
 }
+
+.container {
+  margin-top: 70px;
+}
+
+.table {
+  color: #DFDBC4;
+}
+
+
+
+/* タブレット横置きサイズ（1210px）以下の際に適用される設定 */
+@media screen and (max-width:1210px) {
+  header {
+    background-color: rgba(51,51,51,0);
+  }
+
+  .header-nav {
+    margin: 0 0 0 auto;
+    line-height: 60px;
+  }
+
+  .header-ul {
+    letter-spacing: 0;
+  }
+
+  .header-li {
+    padding: 20px;
+  }
+
+  .fa-bars {
+    font-size: 40px;
+    color: #DFDBC4;
+  }
+}
+

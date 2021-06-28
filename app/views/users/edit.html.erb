@@ -1,37 +1,45 @@
-	<div class="container">
-  <h4 class="mt-3">登録情報編集</h4>
-
+<div class="container">
+  <h3 class="m-2 mb-5 col-3 text-center">登録情報編集</h3>
+  <%= form_with model: @user, local: true do |f| %>
   <div class="row">
-    <div class="col-lg-12">
-      <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "no_image.jpg"%>
-      <%= form_with model: @user, local: true do |f| %>
-        <div>
-          <div class="col-xs-12">
-            <%= f.label :"プロフィール画像", class: "col-sm-3 control-label", style: "margin: 10px;" %>
-            <%= f.attachment_field :profile_image, autofocus: true, autocomplete: "profile_image_id", class: "col-sm-6 form-control-static", style: "padding: 10px;" %>
-          </div>
-          <div class="col-xs-12">
-            <%= f.label :"名前", class: "col-sm-3 control-label", style: "margin: 10px;" %>
-            <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "col-sm-6 form-control-static", style: "margin: 10px;" %>
-          </div>
-          <div class="col-xs-12">
-            <%= f.label :"メールアドレス", class: "col-sm-3 control-label", style: "margin: 10px;" %>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "col-sm-6 form-control-static", style: "margin: 10px;" %>
-          </div>
-          <div class="col-xs-12">
-            <%= f.label :"自己紹介", class: "col-sm-3 control-label", style: "margin: 10px;" %>
-            <%= f.text_area :introduction, autofocus: true, autocomplete: "introduction", class: "col-sm-6 form-control-static", style: "margin: 10px;" %>
-          </div>
-        </div>
+    <div class="col-4 text-center">
+      <%= attachment_image_tag @user, :profile_image, class: "img-thumbnail mb-1", size:"250", fallback: "no_image.jpg"%>
+      <div class="item_image_btn">
+        <%= f.attachment_field :profile_image, id: "file" %>
+      </div>
+      <div id="img_field" onClick="$('#file').click()" >
+        <%= f.label :profile_image, "画像を選択", id: "img_field" %>
+      </div>
+    </div>
 
-        <div class="actions col-xs-10 offset-md-4 mt-3">
+    <div class ="col-8">
+      <div class="col-12">
+        <%= f.label :"名前", class: "col-3 control-label" %>
+        <div class="col-7 mb-3">
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control"  %>
+        </div>
+      </div>
+      <div class="col-12">
+        <%= f.label :"メールアドレス", class: "col-3 control-label" %>
+        <div class="col-7 mb-3">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-12">
+        <%= f.label :"自己紹介", class: "col-3 control-label" %>
+        <div class="col-7 mb-3">
+          <%= f.text_area :introduction, autofocus: true, class: "form-control" %>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="col-7 mt-5">
           <p>
-            <%= f.submit "編集内容を保存する", class: "btn btn-primary btn-sm", style: "margin: 10px;" %>
-            <%= link_to " 退会する", quit_confirm_path, class: "glyphicon glyphicon-tint btn btn-danger btn-sm ml-5", style: "margin: 10px;" %>
+            <%= f.submit "編集内容を保存する", class: "btn btn-primary btn-sm" %>
+            <%= link_to " 退会する", quit_confirm_path, class: "glyphicon glyphicon-tint btn btn-danger btn-sm ml-5" %>
           </p>
         </div>
-      <% end %>
+      </div>
     </div>
   </div>
-
+<% end %>
 </div>

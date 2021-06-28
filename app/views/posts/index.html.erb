@@ -1,6 +1,7 @@
-<div class="container text-center mt-2">
+<div class="container">
   <div class="row">
     <div class="col">
+      <div>
       <%= search_form_for @q, url: search_posts_path do |f| %>
         <%= f.label :genre_name_cont, 'カテゴリー' %>
         <%= f.collection_select :genre_name_cont, Genre.all, :name, :name, include_blank: "選択して下さい" %>
@@ -9,11 +10,6 @@
         <%= f.submit '検索' %>
       <% end %>
     </div>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <div class="col">
       <h1>投稿一覧</h1>
         <% @ranking.each.with_index(1) do | post, i | %>
           <%= i %>位
