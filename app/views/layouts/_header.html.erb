@@ -1,21 +1,26 @@
 <header>
-  <nav class="header-nav">
-    <ul class="header-ul">
-      <% if user_signed_in? %>
-        <!--ログイン時-->
-        <li><%= link_to " トップ", root_path, class: 'header-li' %></li>
-        <li><%= link_to " マイページ", user_path(current_user), class: 'header-li' %></li>
-        <li><%= link_to " 投稿一覧", posts_path, class: 'header-li' %></li>
-        <li><%= link_to "新規投稿", new_post_path, class: 'header-li' %></li>
-        <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: 'header-li' %></li>
-        <li><%= link_to " お問い合わせ", new_contact_path, class: 'header-li' %></li>
-      <% else %>
-        <!-- ログインしていない時 -->
-        <li><%= link_to " トップ", root_path, class: 'header-li' %></li>
-        <li><%= link_to " 投稿一覧", posts_path, class: 'header-li' %></li>
-        <li><%= link_to " 新規登録", new_user_registration_path, class: 'header-li' %></li>
-        <li><%= link_to " ログイン", new_user_session_path, class: 'header-li' %></li>
-      <% end %>
-    </ul>
+  <nav class="header-nav navbar navbar-expand-xl">
+    <button id="button" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+     <span class="fas fa-bars"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="header-ul navbar-nav text-center">
+        <% if user_signed_in? %>
+          <!--ログイン時-->
+          <li class="nav-item"><%= link_to " トップ", root_path, class: 'header-li' %></li>
+          <li class="nav-item"><%= link_to " マイページ", user_path(current_user), class: 'header-li' %></li>
+          <li class="nav-item"><%= link_to " 投稿一覧", posts_path, class: 'header-li' %></li>
+          <li class="nav-item"><%= link_to "新規投稿", new_post_path, class: 'header-li' %></li>
+          <li class="nav-item"><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: 'header-li' %></li>
+          <li class="nav-item"><%= link_to " お問い合わせ", new_contact_path, class: 'header-li' %></li>
+        <% else %>
+          <!-- ログインしていない時 -->
+          <li class="nav-item"><%= link_to " トップ", root_path, class: 'header-li' %></li>
+          <li class="nav-item"><%= link_to " 投稿一覧", posts_path, class: 'header-li' %></li>
+          <li class="nav-item"><%= link_to " 新規登録", new_user_registration_path, class: 'header-li' %></li>
+          <li class="nav-item"><%= link_to " ログイン", new_user_session_path, class: 'header-li' %></li>
+        <% end %>
+      </ul>
+    </div>
   </nav>
 </header>

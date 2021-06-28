@@ -1,45 +1,43 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
-      <%= attachment_image_tag @user, :profile_image, :fill, 200, 200, fallback: "no_image.jpg"%>
-      <% if user_signed_in? %>
-        <%=link_to "フォロー", follows_user_path(@user.id) %>
-        <%=link_to "フォロワー", followers_user_path(@user.id) %>
-        <% if current_user != @user %>
-  			  <%= link_to 'チャットする', chat_path(@user.id) %>
-  			<% end %>
 
-        <% if current_user != @user %>
-            <% if @user.followed_by?(current_user) %>
-                <p><%=link_to "フォロー済み", user_relationships_path(@user.id), method: :delete %></p>
-            <% else %>
-                <p><%=link_to "フォローする", user_relationships_path(@user.id), method: :post %></p>
-            <% end %>
-        <% end %>
+    <div class="col-4 text-center">
+      <%= render  'users/user_info',  user: @user %>
+    </div>
 
-      <% end %>
-      <table class="table-light table table-hover">
-        <tr class="col-xs-2">
-          <td class="table-secondary">名前</td>
-          <td><%= @user.name %></td>
-          <td class="table-secondary">メールアドレス</td>
-          <td><%= @user.email %></td>
-          <td class="table-secondary">自己紹介</td>
-          <td><%= @user.introduction %></td>
-          <% if current_user == @user && user_signed_in? %>
-            <td><%= link_to "編集する", edit_user_path(@user), class: "btn btn-sm btn-success ml-5 px-3 table_button" %></td>
-          <% end %>
-        </tr>
-      </table>
-        <h3>投稿一覧</h3>
+    <div class ="col-8">
+      <h3>投稿一覧</h3>
+
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">タイトル</th>
+            <th scope="col">ジャンル</th>
+            <th scope="col">本文</th>
+            <th scope="col">いいね</th>
+            <th scope="col">コメント</th>
+          </tr>
+        </thead>
         <% @posts.each do |post| %>
+        <tbody>
           <tr>
             <td><%= link_to post.title , post_path(post.id) %></td>
-            <td>コメント件数：<%= post.comments.count %></td>
+            <td><%= post.genre.name %></td>
+            <td><%= post.body %></td>
+            <td><%= post.likes.count %></td>
+            <td><%= post.comments.count %>
           </tr>
+        </tbody>
         <% end %>
-      <table>
       </table>
     </div>
+
   </div>
 </div>
+
+
+
+
+
+
+

@@ -3,9 +3,9 @@
     <%= post.title %>
     <%= link_to post.user.name ,user_path(post.user) %>
     <%= post.genre.name %>
-    <td id = "likes<%= post.id %>" ><%= render  'likes/like',  post: post %></td>
+    <div id = "likes<%= post.id %>" ><%= render  'likes/like',  post: post %></div>
     <%= link_to post_comments_path(post.id) do %>
-      <td>コメント<%= post.comments.count %></td>
+    コメント<%= post.comments.count %>
     <% end %>
     <% if post.user == current_user %>
       <%= link_to '編集', edit_post_path(post), class: "btn btn-sm btn-success edit_post_#{post.id}" %>
