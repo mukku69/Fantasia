@@ -1,7 +1,6 @@
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <div>
+  <div class="row justify-content-center">
+    <div class="my-3 col-8">
       <%= search_form_for @q, url: search_posts_path do |f| %>
         <%= f.label :genre_name_cont, 'カテゴリー' %>
         <%= f.collection_select :genre_name_cont, Genre.all, :name, :name, include_blank: "選択して下さい" %>
@@ -10,26 +9,44 @@
         <%= f.submit '検索' %>
       <% end %>
     </div>
-      <h1>投稿一覧</h1>
-        <% @ranking.each.with_index(1) do | post, i | %>
-          <%= i %>位
-          <%= post.title %>
-          いいね数 <%= post.likes.count %>
-        <% end %>
+    <div class ="col-8">
 
-      <div class="jscroll scroll-list">
-        <% @posts.each do |post| %>
-          <table>
+        <h3>投稿一覧</h3>
+
+        <div class="jscroll scroll-list">
+          <table class="table">
+          <thead>
             <tr>
-              <td><%= link_to post.user.name, user_path(post.user.id) %></td>
-              <td><%= link_to post.title, post_path(post.id) %></td>
-              <td><%= post.genre.name %></td>
-              <td>コメント件数：<%= post.comments.count %></td>
+              <th scope="col">ユーザー名</th>
+              <th scope="col">タイトル</th>
+              <th scope="col">ジャンル</th>
+              <th scope="col">本文</th>
+              <th scope="col">いいね</th>
+              <th scope="col">コメント</th>
             </tr>
-          </table>
-        <% end %>
-        <%= paginate @posts %>
+          </thead>
+          <% @posts.each do |post| %>
+          <tbody>
+            <tr>
+              <td><%= post.user.name %></td>
+              <td><%= link_to post.title , post_path(post.id) %></td>
+              <td><%= post.genre.name %></td>
+              <td><%= post.body %></td>
+              <td><%= post.likes.count %></td>
+              <td><%= post.comments.count %>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+          <%= paginate @posts %>
+        </div>
+
       </div>
-    </div>
   </div>
 </div>
+
+      <%# @ranking.each.with_index(1) do | post, i | %>
+        <%#= i %>
+        <%#= post.title %>
+        <%#= post.likes.count %>
+      <%# end %>

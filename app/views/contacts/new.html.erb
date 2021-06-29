@@ -1,14 +1,41 @@
-お問い合わせフォーム
-  <div>
-    <%= form_with model: @contact, local:true do |f| %>
-      <%= f.label :"お名前"%>
-       <%= current_user.name %>
-      <%= f.label :"メールアドレス"%>
-       <%= current_user.email %>
-      <%= f.label :"お問合せ内容"%>
-       <%= f.text_area :body %>
-    <div>
-      <%= f.submit "送信"%>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <h1>お問い合わせフォーム</h1>
+
+      <%= form_with model: @contact, local:true do |f| %>
+        <div class="my-3">
+          <div class="col-4">
+            <%= f.label :"お名前" %>
+          </div>
+          <div class="col-8">
+            <%= current_user.name %>
+          </div>
+        </div>
+
+        <div class="my-3">
+          <div class="col-4">
+            <%= f.label :"メールアドレス" %>
+          </div>
+          <div class="col-8">
+            <%= current_user.email %>
+          </div>
+        </div>
+
+        <div class="my-3">
+          <div class="col-4">
+            <%= f.label :"お問合せ内容" %>
+          </div>
+          <div class="col-8">
+            <%= f.text_area :body %>
+          </div>
+        </div>
+
+        <div class="my-4">
+          <%= f.submit "送信" %>
+        </div>
+
+      <% end %>
     </div>
-    <% end %>
   </div>
+</div>
