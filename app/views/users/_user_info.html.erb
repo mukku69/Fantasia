@@ -1,9 +1,10 @@
 <div class="mx-auto">
   <%= attachment_image_tag user, :profile_image, class: "img-thumbnail", size:"250", fallback: "no_image.jpg" %>
 </div>
-<!--ログイン確認-->
+<div class="py-3">
+    <%= user.name %>
+  </div>
 <% if user_signed_in? %>
-  <!--ユーザー確認-->
   <% if current_user != user %>
     <div class="mx-auto py-3">
       <div class="row justify-content-center">
@@ -38,8 +39,9 @@
     </div>
   </div>
 
-  <div class="py-3">
+<% end %>
+
+
+<div class="py-3">
     <%= user.introduction %>
   </div>
-
-<% end %>
