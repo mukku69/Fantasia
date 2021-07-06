@@ -2,8 +2,9 @@
   <h3 class="m-2 mb-5 col-3 text-center">登録情報編集</h3>
   <%= form_with model: @user, local: true do |f| %>
   <div class="row">
+
     <div class="col-4 text-center">
-      <%= attachment_image_tag @user, :profile_image, class: "img-thumbnail mb-1", size:"250", fallback: "no_image.jpg"%>
+      <%= attachment_image_tag @user, :profile_image, class: "prof_img mb-1", id: "preview", size:"250", fallback: "no_image.jpg"%>
       <div class="item_image_btn">
         <%= f.attachment_field :profile_image, id: "file" %>
       </div>
