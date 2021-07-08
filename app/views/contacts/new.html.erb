@@ -1,38 +1,38 @@
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-8">
+    <div class="col-7 contact_form">
       <h1>お問い合わせフォーム</h1>
 
       <%= form_with model: @contact, local:true do |f| %>
-        <div class="my-3">
-          <div class="col-4">
+        <div class="my-4">
+          <div class="contact_label">
             <%= f.label :"お名前" %>
           </div>
-          <div class="col-8">
+          <div class="col-12 contact_name">
             <%= current_user.name %>
           </div>
         </div>
 
-        <div class="my-3">
-          <div class="col-4">
+        <div class="my-4">
+          <div class="contact_label">
             <%= f.label :"メールアドレス" %>
           </div>
-          <div class="col-8">
+          <div class="col-12 contact_email">
             <%= current_user.email %>
           </div>
         </div>
 
-        <div class="my-3">
-          <div class="col-4">
+        <div class="my-4">
+          <div class="contact_label">
             <%= f.label :"お問合せ内容" %>
           </div>
-          <div class="col-8">
+          <div>
             <%= f.text_area :body %>
           </div>
         </div>
 
-        <div class="my-4">
-          <%= f.submit "送信" %>
+        <div class="text-right">
+          <%= f.submit "送信" , class: "btn btn-outline-light" %>
         </div>
 
       <% end %>

@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="my-3 col-8">
       <%= search_form_for @q, url: search_posts_path do |f| %>
-        <%= f.label :genre_name_cont, 'カテゴリー' %>
+        <%= f.label :genre_name_cont, 'ジャンル' %>
         <%= f.collection_select :genre_name_cont, Genre.all, :name, :name, include_blank: "選択して下さい" %>
         <%= f.label :body_cont, '本文' %>
         <%= f.search_field :body_cont, class:"search_box", placeholder:"キーワードを入力してください", size:"30" %>
