@@ -1,5 +1,5 @@
 $(function() {
-  var $textarea = $('#post_body');
+  var $textarea = $('#textarea');
   var lineHeight = parseInt($textarea.css('lineHeight'));
   $textarea.on('input', function(e) {
     var lines = ($(this).val() + '\n').match(/\n/g).length;

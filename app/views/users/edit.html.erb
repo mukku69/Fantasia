@@ -29,15 +29,15 @@
       <div class="col-12">
         <%= f.label :"自己紹介", class: "col-3 control-label" %>
         <div class="col-7 mb-3">
-          <%= f.text_area :introduction, autofocus: true, class: "form-control" %>
+          <%= f.text_area :introduction, autofocus: true, class: "form-control", id: "textarea" %>
         </div>
       </div>
-      <div class="col-12">
+      <div class="col-12 text-center">
         <div class="col-7 mt-5">
-          <p>
-            <%= f.submit "編集内容を保存する", class: "btn btn-primary btn-sm" %>
-            <%= link_to " 退会する", quit_confirm_path, class: "glyphicon glyphicon-tint btn btn-danger btn-sm ml-5" %>
-          </p>
+            <%= f.submit "編集内容を保存する", class: "btn btn-success btn-sm" %>
+        </div>
+        <div class="col-7 mt-5">
+            <%= link_to "アカウント削除", quit_confirm_path, class: "glyphicon glyphicon-tint btn btn-danger btn-sm" %>
         </div>
       </div>
     </div>

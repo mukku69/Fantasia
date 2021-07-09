@@ -2,7 +2,7 @@
 <table class='table'>
   <tr>
     <td><%= post.title %></td>
-    <td><%= post.body %></td>
+    <td><%= simple_format post.body %></td>
     <td>コメント件数：<%= post.comments.count %></td>
   </tr>
 </table>
