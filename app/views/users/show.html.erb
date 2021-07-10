@@ -23,7 +23,10 @@
           <tr>
             <td class="col-2"><%= link_to post.title , post_path(post.id) %></td>
             <td class="col-2"><%= post.genre.name %></td>
-            <td class="col-4"><%= simple_format post.body %></td>
+            <td class="col-4">
+              <div class="grad-item"><%= simple_format post.body %></div>
+              <div class="grad-btn text-right"><%= link_to "続きを読む" , post_path(post.id) %></div>
+            </td>
             <td class="col-2"><%= post.likes.count %></td>
             <td class="col-2"><%= post.comments.count %></td>
           </tr>

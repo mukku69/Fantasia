@@ -27,6 +27,11 @@ a {
   color: #AA8E4F;
 }
 
+a:hover {
+  color: #005640;
+  text-decoration: none;
+}
+
 
 h3 {
   letter-spacing: 5px;
@@ -85,14 +90,6 @@ header {
 #button {
   margin-left: auto;
   background-collor: white;
-}
-
-.container {
-  margin-top: 70px;
-}
-
-.container-fluid {
-  margin-top: 70px;
 }
 
 .table {
