@@ -249,6 +249,7 @@ GEM
     parser (3.0.1.1)
       ast (~> 2.4.1)
     popper_js (1.16.0)
+    prettier (1.6.1)
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -427,6 +428,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-oauth2
   omniauth-twitter
+  prettier
   pry-byebug
   puma (~> 3.11)
   rails (~> 5.2.6)

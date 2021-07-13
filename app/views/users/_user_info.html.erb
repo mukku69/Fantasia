@@ -1,46 +1,42 @@
 <div class="mx-auto">
-  <%= attachment_image_tag user, :profile_image,  class: "prof_img", fallback: "no_image.png" %>
+  <%= attachment_image_tag user, :profile_image, class: "prof_img", fallback: "no_image.png" %>
 </div>
 <div class="py-3">
-    <%= user.name %>
-  </div>
-<% if user_signed_in? %>
-  <% if current_user != user %>
-    <div class="mx-auto py-3">
-      <div class="row justify-content-center">
-        <div class="col-2">
-          <%= link_to chat_path(user.id) do %>
-           <i class="far fa-envelope"></i>
-          <% end %>
-        </div>
-        <div class="col-4">
-          <% if user.followed_by?(current_user) %>
-            <%=link_to "フォロー済み", user_relationships_path(user.id), method: :delete %>
-          <% else %>
-            <%=link_to "フォローする", user_relationships_path(user.id), method: :post %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% else %>
-    <div class="mx-auto py-3">
-      <%= link_to "プロフィールを編集", edit_user_path(user) %>
-    </div>
-  <% end %>
+  <%= user.name %>
+</div>
 
+<% if current_user != user %>
+<div class="row justify-content-center">
+  <div class="mx-3">
+    <%= link_to chat_path(user.id) do %><i class="far fa-envelope"></i><% end %>
+  </div>
+  <div class="mx-3">
+    <% if user.followed_by?(current_user) %>
+    <%= link_to "フォロー済み", user_relationships_path(user.id), method: :delete %>
+    <% else %>
+    <%= link_to "フォローする", user_relationships_path(user.id), method: :post %>
+    <% end %>
+  </div>
+</div>
+<% else %>
+<div class="row justify-content-center">
   <div class="mx-auto">
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <%=link_to "フォロー", follows_user_path(user.id) %>
-      </div>
-      <div class="col-4">
-        <%=link_to "フォロワー", followers_user_path(user.id) %>
-      </div>
-    </div>
+    <%= link_to "プロフィールを編集", edit_user_path(user) %>
   </div>
-
+</div>
 <% end %>
 
-  <div class="py-3">
+<div class="row justify-content-center my-3">
+  <div class="mx-3">
+    <%= user.followings.count %> <%= link_to "フォロー", follows_user_path(user.id) %>
+  </div>
+  <div class="mx-3">
+    <%= user.followers.count %> <%= link_to "フォロワー", followers_user_path(user.id) %>
+  </div>
+</div>
+
+<div class="row justify-content-center py-3">
+  <div class="col-md-10">
     <%= user.introduction %>
   </div>
+</div>
