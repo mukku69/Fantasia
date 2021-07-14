@@ -25,7 +25,7 @@
             <td class="col-2"><%= post.genre.name %></td>
             <td class="col-4">
               <div class="grad-item"><%= simple_format post.body %></div>
-              <div class="grad-btn text-right"><%= link_to "続きを読む" , post_path(post.id) %></div>
+              <div class="grad-btn text-right"><%= link_to "続きを読む ➔" , post_path(post.id),class:"read-btn" %></div>
             </td>
             <td class="col-2"><%= post.likes.count %></td>
             <td class="col-2"><%= post.comments.count %></td>
@@ -37,3 +37,4 @@
 
   </div>
 </div>
+
