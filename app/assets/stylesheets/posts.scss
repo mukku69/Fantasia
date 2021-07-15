@@ -1,8 +1,22 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.post_title {
+  width: 100%;
+  border: none;
+  border-bottom: solid 1px;
+  outline: none;
+  color: #dfdbc4;
+  background-color: rgba(0, 0, 0, 0);
+}
+
 .post_body {
+  width: 100%;
   min-height: 300px;
+  outline: none;
+  border: solid 1px;
+  color: #dfdbc4;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 // 続きを読む機能

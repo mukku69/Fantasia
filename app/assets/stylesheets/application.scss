@@ -58,7 +58,7 @@ header {
 
 .header-li {
   position: relative;
-  padding: 30px 50px;
+  padding: 0 50px;
   color: #dfdbc4;
   display: inline-block;
   text-decoration: none;
@@ -66,7 +66,7 @@ header {
 
 .header-li::after {
   position: absolute;
-  bottom: 50px;
+  bottom: 0;
   left: 0;
   content: "";
   width: 100%;
@@ -89,7 +89,6 @@ header {
 
 #button {
   margin-left: auto;
-  background-collor: white;
 }
 
 .table {

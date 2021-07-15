@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_q, only: [:index, :search]
   before_action :correct_post, only: [:edit, :update, :destroy]
-
+  helper_method :sort_column, :sort_direction
 
   def new
     @post = Post.new
@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def index
     rand = Rails.env.production? ?  "rand()" : "RANDOM()"
-    @posts = Post.order(rand).page(params[:page]).per(30)
+    @posts = Post.order(rand ,"#{sort_column} #{sort_direction}").page(params[:page]).per(30)
     @ranking = Post.find(Like.group(:post_id).order('count(post_id) desc').limit(5).pluck(:post_id))
   end
 
@@ -56,6 +56,14 @@ class PostsController < ApplicationController
   def comments
     @post = Post.find(params[:id])
     @posts = @post.followings
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : 'asc'
+  end
+
+  def sort_column
+    Post.column_names.include?(params[:sort]) ? params[:sort] : 'created_at'
   end
 
 private

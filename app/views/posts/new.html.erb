@@ -4,15 +4,15 @@
       <%= form_with model:@post,local:true do |f| %>
         <div class="form-group">
           <%= f.label :genre_id, "ジャンル" %>
-          <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "--選択してください--",  class: "form-control" %>
+          <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: "--選択してください--" %>
         </div>
         <div class="form-group my-4">
           <%= f.label :title, "タイトル" %>
-          <%= f.text_field :title, class: 'form-control post_title' %>
+          <%= f.text_field :title, class: 'post_title' %>
         </div>
         <div class="form-group my-4">
           <%= f.label :body, "本文" %>
-          <%= f.text_area :body, class: 'form-control post_body', id: "textarea" %>
+          <%= f.text_area :body, class: 'post_body', id: "textarea" %>
         </div>
         <div class="form-group text-right">
           <%= f.submit "投 稿", class: 'btn btn-outline-light' %>
