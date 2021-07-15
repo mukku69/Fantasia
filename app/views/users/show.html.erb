@@ -1,31 +1,34 @@
-<div class="container">
-  <div class="row">
+<div class="container-fluid">
+  <div class="row justify-content-center">
 
-    <div class="col-4 text-center">
+    <div class="col-lg-3 text-center">
       <%= render  'users/user_info',  user: @user %>
     </div>
 
-    <div class ="col-8">
+    <div class="col-lg-8">
       <h3>投稿一覧</h3>
 
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">タイトル</th>
-            <th scope="col">ジャンル</th>
-            <th scope="col">本文</th>
-            <th scope="col">いいね</th>
-            <th scope="col">コメント</th>
+            <th class="col-2">タイトル</th>
+            <th class="col-2">ジャンル</th>
+            <th class="col-4">本文</th>
+            <th class="col-2">いいね</th>
+            <th class="col-2">コメント</th>
           </tr>
         </thead>
         <% @posts.each do |post| %>
         <tbody>
           <tr>
-            <td><%= link_to post.title , post_path(post.id) %></td>
-            <td><%= post.genre.name %></td>
-            <td><%= post.body %></td>
-            <td><%= post.likes.count %></td>
-            <td><%= post.comments.count %>
+            <td class="col-2"><%= link_to post.title , post_path(post.id) %></td>
+            <td class="col-2"><%= post.genre.name %></td>
+            <td class="col-4">
+              <div class="grad-item"><%= simple_format post.body %></div>
+              <div class="grad-btn text-right"><%= link_to "続きを読む ➔" , post_path(post.id),class:"read-btn" %></div>
+            </td>
+            <td class="col-2"><%= post.likes.count %></td>
+            <td class="col-2"><%= post.comments.count %></td>
           </tr>
         </tbody>
         <% end %>
@@ -34,10 +37,4 @@
 
   </div>
 </div>
-
-
-
-
-
-
 

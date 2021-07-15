@@ -25,5 +25,4 @@ class ContactsController < ApplicationController
   def contact_params
     params.require(:contact).permit(:body)
   end
-
 end

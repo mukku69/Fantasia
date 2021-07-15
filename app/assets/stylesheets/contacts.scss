@@ -1,3 +1,26 @@
 // Place all the styles related to the Contacts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.contact_label {
+  font-size: 20px;
+  color: #AA8E4F;
+}
+
+.contact_name {
+  border-bottom: solid 1px;
+}
+
+.contact_email {
+  border-bottom: solid 1px;
+}
+
+.contact_body {
+  width: 100%;
+  min-height: 250px;
+  outline: none;
+  border: solid 1px;
+  color: #dfdbc4;
+  background-color: rgba(0, 0, 0, 0);
+}

@@ -1,48 +1,59 @@
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="my-3 col-8">
-      <%= search_form_for @q, url: search_posts_path do |f| %>
-        <%= f.label :genre_name_cont, 'カテゴリー' %>
-        <%= f.collection_select :genre_name_cont, Genre.all, :name, :name, include_blank: "選択して下さい" %>
-        <%= f.label :body_cont, '本文' %>
-        <%= f.search_field :body_cont, class:"search_box", placeholder:"キーワードを入力してください", size:"30" %>
-        <%= f.submit '検索' %>
-      <% end %>
-    </div>
-    <div class ="col-8">
+<div class="row jus">
+  <%= search_form_for @q, url: search_posts_path do |f| %>
+    <%= f.label :genre_name_cont, 'ジャンル' %>
+    <%= f.collection_select :genre_name_cont, Genre.all, :name, :name, include_blank: "選択して下さい" %>
+    <%= f.label :body_cont, '本文' %>
+    <%= f.search_field :body_cont, class:"search_box", placeholder:"キーワードを入力してください", size:"30" %>
+    <%= f.submit '検索' %>
+  <% end %>
+</div>
 
-        <h3>投稿一覧</h3>
+
+  <div class="row justify-content-center">
+
+
+    <div class ="col-12">
+
+        <h1 class="mb-4 text-center">〜投稿一覧〜</h1>
 
         <div class="jscroll scroll-list">
           <table class="table">
-          <thead>
-            <tr>
-              <th scope="col">ユーザー名</th>
-              <th scope="col">タイトル</th>
-              <th scope="col">ジャンル</th>
-              <th scope="col">本文</th>
-              <th scope="col">いいね</th>
-              <th scope="col">コメント</th>
-            </tr>
-          </thead>
-          <% @posts.each do |post| %>
-          <tbody>
-            <tr>
-              <td><%= post.user.name %></td>
-              <td><%= link_to post.title , post_path(post.id) %></td>
-              <td><%= post.genre.name %></td>
-              <td><%= post.body %></td>
-              <td><%= post.likes.count %></td>
-              <td><%= post.comments.count %>
-            </tr>
-          </tbody>
-          <% end %>
-        </table>
-          <%= paginate @posts %>
+            <thead>
+              <tr>
+                <th class="col-2">投稿日</th>
+                <th class="col-2">ユーザー名</th>
+                <th class="col-1">タイトル</th>
+                <th class="col-1">ジャンル</th>
+                <th class="col-2">本文</th>
+                <th class="col-1">いいね</th>
+                <th class="col-1">コメント</th>
+              </tr>
+            </thead>
+            <% @posts.each do |post| %>
+            <tbody>
+              <tr>
+                <td class="col-1"><%= post.created_at.strftime("%Y年%m月%d日") %></td>
+                <td class="col-1"><%= post.user.name %></td>
+                <td class="col-2"><%= link_to post.title , post_path(post.id) %></td>
+                <td class="col-1"><%= post.genre.name %></td>
+                <td class="col-3">
+                  <div class="grad-item"><%= simple_format post.body %></div>
+                  <div class="grad-btn"><%= link_to "続きを読む ➔" , post_path(post.id) ,class:"read-btn" %></div>
+                </td>
+                <td class="col-1"><%= post.likes.count %></td>
+                <td class="col-1"><%= post.comments.count %>
+              </tr>
+            </tbody>
+            <% end %>
+          </table>
+          <div class="invisible"><%= paginate @posts %></div>
         </div>
 
-      </div>
+    </div>
+
   </div>
+
 </div>
 
       <%# @ranking.each.with_index(1) do | post, i | %>

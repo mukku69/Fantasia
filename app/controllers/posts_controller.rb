@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show, :search]
   before_action :set_q, only: [:index, :search]
+  before_action :correct_post, only: [:edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -59,11 +60,18 @@ class PostsController < ApplicationController
 private
 
   def post_params
-    params.require(:post).permit(:title, :body)
+    params.require(:post).permit(:title, :body, :genre_id)
   end
 
   def set_q
     @q = Post.ransack(params[:q])
+  end
+
+  def correct_post
+    @post = Post.find(params[:id])
+    unless @post.user == current_user
+      redirect_to posts_path
+    end
   end
 
 end

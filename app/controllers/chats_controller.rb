@@ -14,9 +14,8 @@ class ChatsController < ApplicationController
     else
       @room = user_rooms.room
     end
-      @chats = @room.chats
-      @chat = Chat.new(room_id: @room.id)
-
+    @chats = @room.chats
+    @chat = Chat.new(room_id: @room.id)
   end
 
   def create
@@ -24,7 +23,7 @@ class ChatsController < ApplicationController
     @chat.save
   end
 
-private
+  private
 
   def chat_params
     params.require(:chat).permit(:message, :room_id)

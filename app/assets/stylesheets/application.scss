@@ -14,13 +14,22 @@
  *= require_self
  */
 @import "bootstrap";
-@import 'font-awesome-sprockets';
-@import 'font-awesome';
-@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@import url("https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap");
 
 body {
   background-color: #222222;
-  color: #DFDBC4;
+  color: #dfdbc4;
+}
+
+a {
+  color: #aa8e4f;
+}
+
+a:hover {
+  color: #418372;
+  text-decoration: none;
 }
 
 h3 {
@@ -48,33 +57,48 @@ header {
 }
 
 .header-li {
-  padding: 30px 50px;
-  color: #DFDBC4;
+  position: relative;
+  padding: 0 50px;
+  color: #dfdbc4;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.header-li::after {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: rgba(220, 220, 200, 0.3);
+  transform: scale(0, 1);
+  transform-origin: center top;
+  transition: transform 0.3s;
 }
 
 .header-li:hover {
-  color: #AA8E4F;
+  color: #418372;
+  // color: #aa8e4f;
   text-decoration: none;
-  background-color: rgba(51,51,51,0.9);
+}
+
+.header-li:hover::after {
+  transform: scale(1, 1);
 }
 
 #button {
   margin-left: auto;
-  background-collor: white;
-}
-
-.container {
-  margin-top: 70px;
 }
 
 .table {
-  color: #DFDBC4;
+  color: #dfdbc4;
 }
 
 /* タブレット横置きサイズ（1210px）以下の際に適用される設定 */
-@media screen and (max-width:1210px) {
+@media screen and (max-width: 1210px) {
   header {
-    background-color: rgba(51,51,51,0);
+    background-color: rgba(51, 51, 51, 0);
   }
 
   .header-nav {
@@ -83,7 +107,10 @@ header {
   }
 
   .header-ul {
+    position: relative;
+    z-index: 1;
     letter-spacing: 0;
+    background-color: rgba(51, 51, 51, 0.5);
   }
 
   .header-li {
@@ -92,7 +119,6 @@ header {
 
   .fa-bars {
     font-size: 40px;
-    color: #DFDBC4;
+    color: #dfdbc4;
   }
 }
-

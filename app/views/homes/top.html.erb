@@ -1,42 +1,44 @@
-<video class="video" playsinline muted autoplay >
-  <source src="https://fantasia-top.s3.ap-northeast-1.amazonaws.com/Fantasia_top.mp4" type="video/mp4" >
-</video>
+<div class="container-fluid">
+  <video class="video" playsinline muted autoplay >
+    <source src="https://fantasia-top.s3.ap-northeast-1.amazonaws.com/Fantasia_top.mp4" type="video/mp4" >
+  </video>
+    <div class="nav-img fadein"></div>
 
-<div class="row">
-  <div class="nav-img fadein"></div>
-  <div id="header-top">
-    <nav class="top-nav">
-      <ul class="top-ul">
-        <% if user_signed_in? %>
-          <!--ログイン時-->
-          <li><%= link_to " トップ", root_path, class: 'nav-menu' %></li>
-          <li><%= link_to " マイページ", user_path(current_user), class: 'nav-menu' %></li>
-          <li><%= link_to " 投稿一覧", posts_path, class: 'nav-menu' %></li>
-          <li><%= link_to "新規投稿", new_post_path, class: 'nav-menu' %></li>
-          <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: 'nav-menu' %></li>
-          <li><%= link_to " お問い合わせ", new_contact_path, class: 'nav-menu' %></li>
-        <% else %>
-          <!-- ログインしていない時 -->
-          <li class="space"><%= link_to " トップ", root_path, class: 'nav-menu' %></li>
-          <li><%= link_to " 投稿一覧", posts_path, class: 'nav-menu' %></li>
-          <li><%= link_to " 新規登録", new_user_registration_path, class: 'nav-menu' %></li>
-          <li><%= link_to " ログイン", new_user_session_path, class: 'nav-menu' %></li>
-        <% end %>
-      </ul>
-    </nav>
+  <div class="row">
+    <div id="header-top">
+      <nav class="top-nav">
+        <ul class="top-ul">
+          <% if user_signed_in? %>
+            <!--ログイン時-->
+            <li><%= link_to " トップ", root_path, class: 'nav-menu' %></li>
+            <li><%= link_to " マイページ", user_path(current_user), class: 'nav-menu' %></li>
+            <li><%= link_to " 投稿一覧", posts_path, class: 'nav-menu' %></li>
+            <li><%= link_to "新規投稿", new_post_path, class: 'nav-menu' %></li>
+            <li><%= link_to " ログアウト", destroy_user_session_path, method: :delete, class: 'nav-menu' %></li>
+            <li><%= link_to " お問い合わせ", new_contact_path, class: 'nav-menu' %></li>
+          <% else %>
+            <!-- ログインしていない時 -->
+            <li class="space"><%= link_to " トップ", root_path, class: 'nav-menu' %></li>
+            <li><%= link_to " 投稿一覧", posts_path, class: 'nav-menu' %></li>
+            <li><%= link_to " 新規登録", new_user_registration_path, class: 'nav-menu' %></li>
+            <li><%= link_to " ログイン", new_user_session_path, class: 'nav-menu' %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-12">
-    <div class="about text-center">
-      <h1 class="about-top">〜About〜</h1>
-      <p class="about-text">宝くじが当たったら. . .</p>
-      <p class="about-text">ゾンビが現れたら. . .</p>
-      <p class="about-text">もしも転生したら. . .</p>
-      <p class="about-text">ふとそんなことを考えたり友人と話し合ったりしたことはないですか？</p>
-      <p class="about-text">空想の樹は自分の頭の中にある空想や幻想を共有する投稿サイトです。</p>
-      <h2 class="about-second">さあ、<br>あなたの想像した世界を解き放とう</h2>
+  <div class="row">
+    <div class="col-12">
+      <div class="about text-center">
+        <h1 class="about-top">〜About〜</h1>
+        <p class="about-text">宝くじが当たったら. . .</p>
+        <p class="about-text">ゾンビが現れたら. . .</p>
+        <p class="about-text">もしも転生したら. . .</p>
+        <p class="about-text">ふとそんなことを考えたり友人と話したことはないですか？</p>
+        <p class="about-text">空想の樹は自分の頭の中にある空想や幻想を共有する投稿サイトです。</p>
+        <h2 class="about-second">さあ、<br>あなたの想像した世界を解き放とう</h2>
+      </div>
     </div>
   </div>
 </div>

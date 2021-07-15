@@ -1,3 +1,31 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.comments {
+  height: 500px;
+  background-color: rgba(190, 190, 190, 0.2);
+  border-radius: 10px;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.comments::-webkit-scrollbar {
+  display: none;
+}
+
+.comment_img {
+  border-radius: 5rem;
+  max-width: 40px;
+  min-height: 40px;
+}
+
+.comment_form {
+  width: 90%;
+  outline: none;
+  border: none;
+  border-bottom: solid 1px white;
+  background-color: rgba(0, 0, 0, 0);
+  height: 30px;
+  color: #dfdbc4;
+}
