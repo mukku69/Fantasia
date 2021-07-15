@@ -1,16 +1,17 @@
 <div class="container">
+<div class="row jus">
+  <%= search_form_for @q, url: search_posts_path do |f| %>
+    <%= f.label :genre_name_cont, 'ジャンル' %>
+    <%= f.collection_select :genre_name_cont, Genre.all, :name, :name, include_blank: "選択して下さい" %>
+    <%= f.label :body_cont, '本文' %>
+    <%= f.search_field :body_cont, class:"search_box", placeholder:"キーワードを入力してください", size:"30" %>
+    <%= f.submit '検索' %>
+  <% end %>
+</div>
+
 
   <div class="row justify-content-center">
 
-    <div class="my-3 col-8 text-center">
-      <%= search_form_for @q, url: search_posts_path do |f| %>
-        <%= f.label :genre_name_cont, 'ジャンル' %>
-        <%= f.collection_select :genre_name_cont, Genre.all, :name, :name, include_blank: "選択して下さい" %>
-        <%= f.label :body_cont, '本文' %>
-        <%= f.search_field :body_cont, class:"search_box", placeholder:"キーワードを入力してください", size:"30" %>
-        <%= f.submit '検索' %>
-      <% end %>
-    </div>
 
     <div class ="col-12">
 
@@ -20,7 +21,7 @@
           <table class="table">
             <thead>
               <tr>
-                <th class="col-2"><%= sort_order "name", "投稿日" %></th>
+                <th class="col-2">投稿日</th>
                 <th class="col-2">ユーザー名</th>
                 <th class="col-1">タイトル</th>
                 <th class="col-1">ジャンル</th>
