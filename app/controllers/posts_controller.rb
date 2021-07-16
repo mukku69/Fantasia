@@ -49,7 +49,7 @@ class PostsController < ApplicationController
   end
 
   def search
-    @results = @q.result
+    @results = @q.result.order("id DESC").page(params[:page]).per(30)
   end
 
   def comments
