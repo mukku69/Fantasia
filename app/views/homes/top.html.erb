@@ -1,11 +1,11 @@
 <div class="container-fluid">
+  <div class="row fadein", id="nav-img"></div>
+
   <div class="row">
     <video class="video" playsinline muted autoplay >
       <source src="https://fantasia-top.s3.ap-northeast-1.amazonaws.com/Fantasia_top.mp4?versionId=VSu5BEaC6C4ZJDJGHJMbdd6YFnf8FrC8" type="video/mp4" >
     </video>
   </div>
-
-  <div class="row nav-img fadein"></div>
 
   <div class="row">
     <div id="header-top">
@@ -25,6 +25,7 @@
             <li><%= link_to " 投稿一覧", posts_path, class: 'nav-menu' %></li>
             <li><%= link_to " 新規登録", new_user_registration_path, class: 'nav-menu' %></li>
             <li><%= link_to " ログイン", new_user_session_path, class: 'nav-menu' %></li>
+            <li><%= link_to 'ゲストログイン', guest_sign_in_path, class: 'nav-menu', method: :post %></li>
           <% end %>
         </ul>
       </nav>
@@ -45,3 +46,5 @@
     </div>
   </div>
 </div>
+
+
