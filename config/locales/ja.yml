@@ -6,6 +6,15 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    attributes:
+      post:
+        genre: "ジャンル"
+        title: "タイトル"
+        body: "投稿内容"
+      comment:
+        comment: "コメント"
+      chat:
+        message: "メッセージ"
   date:
     abbr_day_names:
     - 日
