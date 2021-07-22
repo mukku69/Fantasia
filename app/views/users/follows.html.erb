@@ -8,7 +8,7 @@
       <div class="text-center py-3"><%= @user.name %></div>
     </div>
     <div class="col-6">
-      <div class="pb-3"><h1>フォロワー</h1></div>
+      <div class="pb-3"><h1>フォロー</h1></div>
       <% if @users.exists? %>
         <% @users.each do |user| %>
           <p><%= link_to user.name, user_path(user.id) %></p>
