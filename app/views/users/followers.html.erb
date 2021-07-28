@@ -11,10 +11,11 @@
       <div class="pb-3"><h1>フォロワー</h1></div>
       <% if @users.exists? %>
         <% @users.each do |user| %>
-          <p class="follow-user">
-            <%= attachment_image_tag @user, :profile_image, class: "follower-img", fallback: "no_image.png", size: "50x50" %>
-            <%= link_to user.name, user_path(user.id) %>
-          </p>
+          <div class="m-3">
+            <span class="m-2"><%= attachment_image_tag @user, :profile_image, class: "rounded-circle", fallback: "no_image.png", size: "50x50" %></span>
+            <span><%= link_to user.name, user_path(user.id) %></span>
+            <span class="mx-5"><%= link_to "フォローする", user_relationships_path(user.id), method: :post %></span>
+          </div>
         <% end %>
       <% else %>
         <p>フォロワーはいません</p>
