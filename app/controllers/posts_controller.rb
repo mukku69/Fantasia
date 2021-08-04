@@ -26,9 +26,9 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
-      redirect_to post_path(@post.id), notice: "You have created book successfully."
+      flash[:notice] = "投稿を作成しました！"
+      redirect_to post_path(@post.id)
     else
-      @posts = Post.all
       render 'new'
     end
   end

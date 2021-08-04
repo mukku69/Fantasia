@@ -1,7 +1,8 @@
 <div class="container comment-box">
-  <h3 class="m-3 text-center">〜コメント一覧〜</h3>
-  <div class="row justify-content-center">
+  <div class="row justify-content-center my-5">
+    <div><%= render 'layouts/error_messages', obj: @post %></div>
     <div class=" col-sm-8 p-4 comments">
+      <h3 class="m-3 text-center">〜コメント一覧〜</h3>
       <% @comments.each do |comment| %>
       <div><%= attachment_image_tag comment.user, :profile_image, class: "comment_img", fallback: "no_image.png" %>
       </div>

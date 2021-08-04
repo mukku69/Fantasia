@@ -1,0 +1,10 @@
+<% if obj.errors.any? %>
+  <div id="error_explanation">
+    <h3 class="pl-3 pr-3 pt-3"><%= pluralize(obj.errors.count, "つのエラーがあります") %></h3>
+    <ul class="pb-3">
+      <% obj.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
