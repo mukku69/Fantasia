@@ -1,4 +1,5 @@
 <div class="container">
+  <div id="notice" class="text-success"><%= notice %></div>
   <div class="row justify-content-end">
     <%= search_form_for @q, url: search_posts_path do |f| %>
       <%= f.search_field :body_cont, class:"search_box", placeholder:"キーワードを入力してください", size:"30" %>
