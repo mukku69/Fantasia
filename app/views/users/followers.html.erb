@@ -1,17 +1,21 @@
-<div class="container my-5">
+<div class="container">
   <div class="row justify-content-center">
 
-    <div class="col-3">
+    <div class="col-3 m-5">
       <div class="text-center">
         <%= attachment_image_tag @user, :profile_image, class: "prof_img", fallback: "no_image.png" %>
       </div>
       <div class="text-center py-3"><%= @user.name %></div>
     </div>
-    <div class="col-6">
+    <div class="col-6 m-5">
       <div class="pb-3"><h1>フォロワー</h1></div>
       <% if @users.exists? %>
         <% @users.each do |user| %>
-          <p><%= link_to user.name, user_path(user.id) %></p>
+          <div class="m-3">
+            <span class="m-2"><%= attachment_image_tag @user, :profile_image, class: "rounded-circle", fallback: "no_image.png", size: "50x50" %></span>
+            <span><%= link_to user.name, user_path(user.id) %></span>
+            <span class="mx-5"><%= link_to "フォローする", user_relationships_path(user.id), method: :post %></span>
+          </div>
         <% end %>
       <% else %>
         <p>フォロワーはいません</p>
